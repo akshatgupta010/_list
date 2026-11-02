@@ -1,37 +1,58 @@
-# HORIZON // Personal Bucket List Web App
+# HORIZON
 
-> **A quiet, high-end sci-fi interface for your life's greatest aspirations.**
-> Client-only single-page application · LocalStorage persistence with corruption recovery · Chrome Glitch visual theme
+> **A quiet, high-end sci-fi interface for your life's greatest aspirations.**  
+> Client-only web application · Zero-database localStorage persistence with corruption recovery · Chrome visual theme
 
 ---
 
 ## 🌌 Overview
 
-HORIZON is a personal bucket list web application built with **React 19**, **TypeScript**, and **Tailwind CSS**. Users capture dreams, plan subtasks and budgets, categorize life priorities, track achievement velocity, and reflect on completed memories. 
+**HORIZON** is a personal bucket list web application built with **React 19**, **TypeScript**, and **Tailwind CSS**. Users capture dreams, plan sub-tasks and budgets, categorize life priorities, track achievement velocity, and preserve completed memories with reflections.
 
-All user data lives **strictly inside the browser's localStorage** — no cloud databases, no account signups, zero tracking, and zero third-party network requests.
-
----
-
-## 🎨 Visual System: "Chrome Glitch"
-
-Inspired by futuristic chrome, liquid-metal, and crystal aesthetics:
-- **Pearl & Obsidian Themes**: Near-monochrome palette (`pearl-50` to `pearl-200` light theme; `obsidian-950` to `obsidian-800` dark theme) meeting strict **WCAG AA 4.5:1** contrast.
-- **Chrome Gradients**: Dynamic multi-stop metallic fills for progress bars, primary buttons, and badges.
-- **Cybernetic Registration Hairlines**: Corner brackets `[ + ]`, registration marks, and 1px dividers.
-- **Glitch & Ripple Accents**: Subtle 260ms non-looping slice-offset hover effect on major headings and 404 page.
-- **Motion Safety**: Full compliance with `prefers-reduced-motion` disabling all slices, confetti, and transitions.
+All data is stored **strictly inside the browser's localStorage** — no cloud databases, no account signups, zero tracking, and zero third-party network requests.
 
 ---
 
-## ⚡ Tech Stack & Architecture
+## 🎨 Visual System & Design
 
-- **UI Framework**: React 19 + TypeScript (strict mode enabled)
-- **Bundler & Tooling**: Vite 6 + Tailwind CSS v3.4 + PostCSS
-- **Routing**: `react-router-dom` using `createHashRouter` for zero-configuration static hosting (GitHub Pages, Vercel, Netlify)
-- **Form Management & Validation**: React Hook Form + Zod (single source of truth for schemas and env)
-- **State & Storage Engine**: Zustand store backed by a resilient, debounced persistence engine (`src/lib/storage.ts`) with automatic corruption recovery, quota safeguards, and cross-tab sync via the `storage` event
-- **Analytics & Data Visualizations**: Recharts (code-split and lazy-loaded on `/stats`)
+Inspired by futuristic chrome, liquid metal, and minimalist aesthetics:
+
+- **Pearl & Obsidian Themes**: Near-monochrome palette (`pearl-50` to `pearl-200` in light mode; `obsidian-950` to `obsidian-800` in dark mode) meeting strict **WCAG AA 4.5:1** contrast.
+- **Precision Silver Buttons**: Action buttons styled in crisp light silver (`#d3d3d3`) with high-contrast ink text (`#16171B`), tactile borders, and active feedback states.
+- **Chrome Progress Fills**: Dynamic multi-stop metallic gradient fills for life progress meters and achievement milestones.
+- **Clean Ambient Backdrop**: Subtle ambient backdrop art crops with vertical hairlines and atmospheric feathering.
+- **Motion Safety**: Respects `prefers-reduced-motion` and includes an in-app toggle to disable all animations, transitions, and celebration confetti.
+
+---
+
+## 🗺️ Pages & Features
+
+| Route | Page | Key Features |
+|---|---|---|
+| `/#/` | **Dashboard** | Life progress bar, upcoming deadlines, recently added goals, "Do This Next" recommendation, and "Surprise Me" randomizer. |
+| `/#/list` | **My Bucket List** | Grid and list view toggle, debounced search (matches title, description, tags), multi-category and multi-priority filters, status tabs (All, Pending, Completed, Overdue), and URL query state sync. |
+| `/#/add`, `/#/edit/:id` | **Add / Edit Goal** | Validated form with React Hook Form + Zod, emoji selector with quick palette, category dropdown with inline category creator, target date, horizon tags, and budget estimator. |
+| `/#/item/:id` | **Item Details** | Full notes, interactive sub-tasks checklist, budget progress meter, memory reflection card, and meta timestamps. |
+| `/#/completed` | **Memories & Timeline** | Achieved dreams stream grouped chronologically by year and month with reflection quotes. |
+| `/#/categories` | **Categories Manager** | Category cards with item counts and progress bars, add custom categories, rename, and safely delete with automated goal reassignment to "Other". |
+| `/#/explore` | **Inspiration Catalog** | 25 curated dreams across 6 categories with 1-click "Add to List" and duplicate detection. |
+| `/#/stats` | **Stats & Analytics** | Lazy-loaded Recharts visualizations (category distribution, monthly completion velocity), consecutive calendar month streak counter, derived milestone badge shelf, and screen reader accessible data table. |
+| `/#/settings` | **Settings** | Display name, theme selector (System / Light / Dark), default view mode, currency code (INR, USD, EUR, GBP, etc.), storage capacity meter, JSON export, import with Replace or Merge, and typed confirmation reset (`"DELETE"`). |
+| `*` | **404** | Atmospheric "Signal Lost in Orbit" recovery screen with quick return links. |
+
+---
+
+## ⚡ Tech Stack
+
+- **UI Framework**: React 19 (strict mode)
+- **Language**: TypeScript (strict type checking enabled)
+- **Bundler**: Vite 6
+- **Styling**: Tailwind CSS v3.4 + PostCSS with semantic CSS variables
+- **Routing**: `react-router-dom` using `createHashRouter` for zero-configuration static hosting (GitHub Pages, Vercel, Netlify, Cloudflare Pages)
+- **State Management**: Zustand store with debounced writes (300ms) and immediate flush on `visibilitychange` or `pagehide`
+- **Validation**: Zod (single source of truth for schemas, types, and environment variables)
+- **Forms**: React Hook Form with `@hookform/resolvers/zod`
+- **Charts**: Recharts (code-split and lazy-loaded on `/stats`)
 - **Celebration Effects**: `canvas-confetti` (disabled under reduced motion)
 - **Testing**: Vitest + React Testing Library + jsdom
 
@@ -52,7 +73,7 @@ npm install
 ```bash
 npm run dev
 ```
-Open `http://localhost:5173/#/` in your browser.
+Open [http://localhost:5173/#/](http://localhost:5173/#/) in your browser.
 
 ### Run Unit Tests
 ```bash
@@ -63,34 +84,34 @@ npm test
 ```bash
 npm run build
 ```
-Generates optimized static assets in `dist/`.
+Builds optimized, code-split static assets in `dist/`.
 
 ---
 
-## 🛡️ Data Safety & Storage Specification
+## 🛡️ Data Safety & Persistence Engine
 
-| Feature | Behavior |
+| Safeguard | Implementation |
 |---|---|
-| **Atomic Writes** | All app state is saved as a single JSON object under key `horizon:v1`, debounced (300ms) and flushed immediately on `visibilitychange` or `pagehide`. |
-| **Corruption Recovery** | If unreadable or corrupted JSON is detected, the raw data is safely preserved in `horizon:v1:corrupt-<timestamp>`, clean defaults are loaded, and a banner offers immediate download of the corrupt string. |
-| **Storage Quota Safeguard** | Catches `QuotaExceededError`, keeps state in memory, and triggers an export recommendation. |
-| **Memory-Only Fallback** | In private browsing or storage-blocked environments, runs gracefully in memory with a persistent warning banner. |
-| **Cross-Tab Sync** | Listens to the `storage` event to reload state instantly when updated from another tab. |
-| **Export & Import** | Full JSON export (`horizon-backup-YYYY-MM-DD.json`). Import validates against Zod schemas, limits file size (<5MB), and offers **Replace** or **Merge** (conflict resolution by newer `updatedAt`). |
-| **Reset with Confirmation** | Full wipe requires typing `"DELETE"` in the confirmation dialog. |
+| **Atomic Saves** | Entire application state is serialized under key `horizon:v1`. Saves are debounced by 300ms and flushed synchronously on document hide. |
+| **Corruption Recovery** | If unreadable or corrupted JSON is detected, the raw data is safely preserved in `horizon:v1:corrupt-<timestamp>`, clean defaults are initialized, and a persistent banner offers immediate download of the corrupt string. |
+| **Quota Overflow Protection** | Catches `QuotaExceededError` without crashing, keeps state active in memory, and alerts the user to export a backup. |
+| **Memory-Only Fallback** | Runs gracefully in-memory with a top warning banner when browser storage is blocked or restricted (e.g. private browsing). |
+| **Cross-Tab Synchronization** | Real-time state updates across multiple browser tabs via the window `storage` event. |
+| **Export & Import** | Full backup download (`horizon-backup-YYYY-MM-DD.json`). Import validates against Zod schemas, enforces a 5MB size limit, and supports **Replace** or **Merge** (conflict resolution by newer `updatedAt`). |
+| **Typed Reset Confirmation** | Complete data wipe requires explicitly typing `"DELETE"` in the modal dialog. |
 
 ---
 
 ## 🔒 Security & Privacy Standard
 
 - **No Remote Transmission**: Goals, reflections, notes, and budgets never leave the local device.
-- **XSS Prevention**: All user text is rendered as React text nodes. Zero usage of `dangerouslySetInnerHTML` or `innerHTML`.
+- **XSS Prevention**: User content is strictly rendered as React text nodes. Zero usage of `dangerouslySetInnerHTML` or `innerHTML`.
 - **Zero Secrets**: No sensitive keys in source or client environment variables.
-- **Recommended Content Security Policy (CSP)** for static hosts:
+- **Recommended Content Security Policy (CSP)** for static hosting:
   ```http
   Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; object-src 'none'; frame-ancestors 'none';
   ```
 
 ---
 
-*HORIZON 1.0. Quiet interface, loud dreams, your data on your device.*
+*HORIZON. Quiet interface, loud dreams, your data on your device.*
