@@ -1,0 +1,57 @@
+/* src/styles/tokens.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Pearl & Silver Palette (Light Mode) */
+  --bg: #F2F1F2;
+  --surface: #F7F6F7;
+  --surface-2: #EDEBEC;
+  --line: #D1D0D1;           /* Decorative hairline */
+  --control-border: #8A8B91; /* Meets non-text 3:1 ratio */
+  --text: #16171B;          /* Primary text, meets 15.9:1 */
+  --muted: #5A5B60;         /* Secondary text, meets 6.0:1 */
+  --accent: #2F5D8A;        /* Ice accent, meets 6.1:1 */
+
+  /* Status Colors */
+  --success: #1F6B4A;
+  --success-bg: #E4F0EA;
+  --warning: #8A5A00;
+  --warning-bg: #F6ECD6;
+  --danger: #A3262A;
+  --danger-bg: #F8E3E3;
+
+  /* Chrome Multi-Stop Metallic Gradient */
+  --chrome: linear-gradient(135deg, #F7F6F7 0%, #D1D0D1 28%, #FFFFFF 50%, #B1B1B2 72%, #EDEBEC 100%);
+  --chrome-border: linear-gradient(135deg, #B1B1B2 0%, #FFFFFF 50%, #8A8B91 100%);
+
+  /* Focus Ring */
+  --focus: 0 0 0 2px var(--bg), 0 0 0 4px var(--text);
+}
+
+[data-theme="dark"] {
+  /* Obsidian Chrome Palette (Dark Mode) */
+  --bg: #0E0F12;
+  --surface: #15161A;
+  --surface-2: #1D1E23;
+  --line: #2C2D33;
+  --control-border: #7C7D83;
+  --text: #ECEBEC;          /* Meets 15.2:1 */
+  --muted: #A3A4A9;         /* Meets 7.3:1 */
+  --accent: #8FB0D8;
+
+  /* Status Colors */
+  --success: #4ADE80;
+  --success-bg: #064E3B;
+  --warning: #FBBF24;
+  --warning-bg: #78350F;
+  --danger: #F87171;
+  --danger-bg: #7F1D1D;
+
+  /* Obsidian Chrome Gradient */
+  --chrome: linear-gradient(135deg, #2A2B30 0%, #5A5B60 30%, #D1D0D1 50%, #5A5B60 70%, #1D1E23 100%);
+  --chrome-border: linear-gradient(135deg, #4B4C53 0%, #A3A4A9 50%, #2A2B30 100%);
+
+  --focus: 0 0 0 2px var(--bg), 0 0 0 4px var(--text);
+}

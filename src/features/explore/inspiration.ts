@@ -1,0 +1,248 @@
+export interface InspirationItem {
+  id: string;
+  title: string;
+  description: string;
+  categoryId: string;
+  priority: 'high' | 'medium' | 'low';
+  emoji: string;
+  tags: string[];
+}
+
+export const INSPIRATION_ITEMS: InspirationItem[] = [
+  // Travel
+  {
+    id: 'insp_1',
+    title: 'Witness the Northern Lights (Aurora Borealis)',
+    description: 'Camp under the Arctic sky in Tromsø, Norway or Abisko, Sweden.',
+    categoryId: 'cat_travel',
+    priority: 'high',
+    emoji: '🌌',
+    tags: ['winter', 'solo', 'nature'],
+  },
+  {
+    id: 'insp_2',
+    title: 'Hike the Inca Trail to Machu Picchu',
+    description: 'Trek through the Andean cloud forest to reach the Sun Gate at dawn.',
+    categoryId: 'cat_travel',
+    priority: 'high',
+    emoji: '⛰️',
+    tags: ['hiking', 'adventure', 'history'],
+  },
+  {
+    id: 'insp_3',
+    title: 'Visit the Ancient Temples of Kyoto in Autumn',
+    description: 'Wander through red maple foliage, Zen rock gardens, and bamboo groves.',
+    categoryId: 'cat_travel',
+    priority: 'medium',
+    emoji: '⛩️',
+    tags: ['japan', 'culture', 'peace'],
+  },
+  {
+    id: 'insp_4',
+    title: 'Take a Hot Air Balloon Flight over Cappadocia',
+    description: 'Float over fairy chimneys and ancient valleys during sunrise in Turkey.',
+    categoryId: 'cat_travel',
+    priority: 'high',
+    emoji: '🎈',
+    tags: ['sunrise', 'romance', 'view'],
+  },
+  {
+    id: 'insp_5',
+    title: 'Explore the Galapagos Islands',
+    description: 'Swim with sea lions, giant tortoises, and marine iguanas.',
+    categoryId: 'cat_travel',
+    priority: 'medium',
+    emoji: '🐢',
+    tags: ['wildlife', 'nature', 'ocean'],
+  },
+  {
+    id: 'insp_6',
+    title: 'Road Trip on the Amalfi Coast',
+    description: 'Drive along cliffside coastal roads overlooking the Tyrrhenian Sea.',
+    categoryId: 'cat_travel',
+    priority: 'low',
+    emoji: '🚗',
+    tags: ['italy', 'roadtrip', 'summer'],
+  },
+
+  // Adventure
+  {
+    id: 'insp_7',
+    title: 'Complete a Tandem Skydiving Jump',
+    description: 'Experience 60 seconds of pure freefall from 14,000 feet.',
+    categoryId: 'cat_adventure',
+    priority: 'high',
+    emoji: '🪂',
+    tags: ['adrenaline', 'fear', 'freedom'],
+  },
+  {
+    id: 'insp_8',
+    title: 'Scuba Dive in the Great Barrier Reef',
+    description: 'Explore the world’s largest coral reef ecosystem and marine biodiversity.',
+    categoryId: 'cat_adventure',
+    priority: 'high',
+    emoji: '🤿',
+    tags: ['ocean', 'diving', 'australia'],
+  },
+  {
+    id: 'insp_9',
+    title: 'Camp in the Sahara Desert under the Milky Way',
+    description: 'Ride camels into golden dunes and sleep in a traditional Bedouin tent.',
+    categoryId: 'cat_adventure',
+    priority: 'medium',
+    emoji: '🏕️',
+    tags: ['desert', 'stargazing', 'morocco'],
+  },
+  {
+    id: 'insp_10',
+    title: 'Bungee Jump from a High Bridge',
+    description: 'Leap off Queenstown’s Kawarau Bridge or Macau Tower.',
+    categoryId: 'cat_adventure',
+    priority: 'medium',
+    emoji: '🧗',
+    tags: ['courage', 'adrenaline'],
+  },
+  {
+    id: 'insp_11',
+    title: 'White Water Rafting on the Zambezi River',
+    description: 'Conquer Class V rapids right below the majestic Victoria Falls.',
+    categoryId: 'cat_adventure',
+    priority: 'low',
+    emoji: '🛶',
+    tags: ['water', 'africa', 'rapids'],
+  },
+
+  // Learning
+  {
+    id: 'insp_12',
+    title: 'Learn to Speak Conversational Spanish or Japanese',
+    description: 'Dedicate 15 minutes a day to reach B1 conversational fluency.',
+    categoryId: 'cat_learning',
+    priority: 'high',
+    emoji: '🗣️',
+    tags: ['language', 'mind', 'habit'],
+  },
+  {
+    id: 'insp_13',
+    title: 'Master Playing One Classical Song on Piano',
+    description: 'Learn Clair de Lune or Moonlight Sonata from memory.',
+    categoryId: 'cat_learning',
+    priority: 'medium',
+    emoji: '🎹',
+    tags: ['music', 'piano', 'discipline'],
+  },
+  {
+    id: 'insp_14',
+    title: 'Read 50 Books in a Single Year',
+    description: 'Explore philosophy, science fiction, biography, and poetry.',
+    categoryId: 'cat_learning',
+    priority: 'medium',
+    emoji: '📚',
+    tags: ['reading', 'wisdom', 'challenge'],
+  },
+  {
+    id: 'insp_15',
+    title: 'Learn Scuba Diving Certification (PADI Open Water)',
+    description: 'Complete classroom, confined water, and open ocean checkout dives.',
+    categoryId: 'cat_learning',
+    priority: 'high',
+    emoji: '📜',
+    tags: ['certificate', 'skills', 'ocean'],
+  },
+  {
+    id: 'insp_16',
+    title: 'Learn to Sail and Navigate a Small Boat',
+    description: 'Understand tacking, jibing, knot tying, and wind angles on the water.',
+    categoryId: 'cat_learning',
+    priority: 'low',
+    emoji: '⛵',
+    tags: ['sailing', 'skills', 'freedom'],
+  },
+
+  // Career & Impact
+  {
+    id: 'insp_17',
+    title: 'Deliver a Keynote Talk at a Tech Conference',
+    description: 'Share lessons and inspiration with hundreds of peers on stage.',
+    categoryId: 'cat_career',
+    priority: 'medium',
+    emoji: '🎤',
+    tags: ['public-speaking', 'growth', 'confidence'],
+  },
+  {
+    id: 'insp_18',
+    title: 'Build and Launch an Independent Digital Product',
+    description: 'Ship an open source library or micro-SaaS used by real people.',
+    categoryId: 'cat_career',
+    priority: 'high',
+    emoji: '🚀',
+    tags: ['coding', 'startup', 'creation'],
+  },
+  {
+    id: 'insp_19',
+    title: 'Mentor Five Junior Developers or Students',
+    description: 'Give back time to help others break into technology and leadership.',
+    categoryId: 'cat_career',
+    priority: 'medium',
+    emoji: '🤝',
+    tags: ['giving-back', 'leadership', 'impact'],
+  },
+
+  // Health & Mind
+  {
+    id: 'insp_20',
+    title: 'Run a Full Marathon (42.195 km)',
+    description: 'Train consistently for 16 weeks and cross the iconic finish line.',
+    categoryId: 'cat_health',
+    priority: 'high',
+    emoji: '🏃',
+    tags: ['endurance', 'fitness', 'grit'],
+  },
+  {
+    id: 'insp_21',
+    title: 'Complete a 10-Day Silent Vipassana Meditation',
+    description: 'Disconnect from all screens, speech, and distractions to look inward.',
+    categoryId: 'cat_health',
+    priority: 'medium',
+    emoji: '🧘',
+    tags: ['mindfulness', 'peace', 'discipline'],
+  },
+  {
+    id: 'insp_22',
+    title: 'Climb a 5,000+ Meter Mountain Peak',
+    description: 'Summit Mount Kilimanjaro or Kala Patthar with mental focus.',
+    categoryId: 'cat_health',
+    priority: 'high',
+    emoji: '🏔️',
+    tags: ['mountains', 'altitude', 'strength'],
+  },
+
+  // Creative & Lifestyle
+  {
+    id: 'insp_23',
+    title: 'Write and Self-Publish a Book or Novella',
+    description: 'Put words onto paper, design a cover, and hold your physical book.',
+    categoryId: 'cat_creative',
+    priority: 'high',
+    emoji: '✍️',
+    tags: ['writing', 'author', 'creativity'],
+  },
+  {
+    id: 'insp_24',
+    title: 'Host an Unforgettable 5-Course Dinner Party',
+    description: 'Cook authentic homemade recipes, pair wines, and gather dearest friends.',
+    categoryId: 'cat_creative',
+    priority: 'medium',
+    emoji: '🍷',
+    tags: ['food', 'friends', 'warmth'],
+  },
+  {
+    id: 'insp_25',
+    title: 'Design and Build a Minimalist Home Workspace',
+    description: 'Curate a quiet, distraction-free sanctuary with natural light and plants.',
+    categoryId: 'cat_creative',
+    priority: 'low',
+    emoji: '🌿',
+    tags: ['workspace', 'minimalism', 'craft'],
+  },
+];
