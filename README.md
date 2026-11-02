@@ -13,15 +13,29 @@ All data is stored **strictly inside the browser's localStorage** — no cloud d
 
 ---
 
-## 🎨 Visual System & Design
+## 📸 Interface Preview
 
-Inspired by futuristic chrome, liquid metal, and minimalist aesthetics:
+*Click any screenshot to open the full uncompressed high-resolution view.*
 
-- **Pearl & Obsidian Themes**: Near-monochrome palette (`pearl-50` to `pearl-200` in light mode; `obsidian-950` to `obsidian-800` in dark mode) meeting strict **WCAG AA 4.5:1** contrast.
-- **Precision Silver Buttons**: Action buttons styled in crisp light silver (`#d3d3d3`) with high-contrast ink text (`#16171B`), tactile borders, and active feedback states.
-- **Chrome Progress Fills**: Dynamic multi-stop metallic gradient fills for life progress meters and achievement milestones.
-- **Clean Ambient Backdrop**: Subtle ambient backdrop art crops with vertical hairlines and atmospheric feathering.
-- **Motion Safety**: Respects `prefers-reduced-motion` and includes an in-app toggle to disable all animations, transitions, and celebration confetti.
+### 1. Personal Dashboard
+> Real-time life progress tracking, quick metrics, "Suggested Next Focus" recommendation engine, and dual-column feeds for upcoming deadlines and recently added dreams.
+
+[![Personal Dashboard](docs/screenshots/dashboard.png)](docs/screenshots/dashboard.png)
+
+### 2. My Bucket List (Interactive Grid & Filters)
+> Fluid grid/list view toggle, debounced search across titles, notes, and tags, multi-filter pills for categories and priorities, and quick status tabs (All, Pending, Completed, Overdue).
+
+[![My Bucket List](docs/screenshots/my-list.png)](docs/screenshots/my-list.png)
+
+### 3. Curated Inspiration Catalog
+> Explore 25 curated dream templates across 6 core domains. Features a 1-click "+ ADD" button, instant duplicate detection (`✓ IN LIST`), and a "Surprise Idea" randomizer.
+
+[![Inspiration Catalog](docs/screenshots/inspiration.png)](docs/screenshots/inspiration.png)
+
+### 4. Life Analytics & Streaks
+> Interactive Recharts visualizations showcasing category distributions and 6-month completion velocity, alongside monthly streak trackers and milestone achievements.
+
+[![Life Analytics and Streaks](docs/screenshots/stats-analytics.png)](docs/screenshots/stats-analytics.png)
 
 ---
 
