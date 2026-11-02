@@ -23,7 +23,7 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full glass-panel border-b border-line/80 backdrop-blur-md">
+    <header className="w-full glass-panel border-b border-line/80 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
         {/* Brand Wordmark */}
         <div className="flex items-center gap-6">

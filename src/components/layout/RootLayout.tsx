@@ -60,10 +60,14 @@ export function RootLayout() {
     <ErrorBoundary>
       <div className="min-h-screen flex flex-col relative selection:bg-line/80 selection:text-ink">
         <ArtBackdrop />
-        <StorageBanner />
-        <Header />
 
-        <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+        {/* Fixed Header & Storage Banner */}
+        <div className="fixed top-0 left-0 right-0 z-40">
+          <StorageBanner />
+          <Header />
+        </div>
+
+        <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 md:pb-8 relative z-10">
           <Outlet />
         </main>
 

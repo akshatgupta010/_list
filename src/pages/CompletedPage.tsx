@@ -46,7 +46,7 @@ export function CompletedPage() {
 
   if (completedItems.length === 0) {
     return (
-      <div className="py-12 max-w-md mx-auto animate-in fade-in duration-200">
+      <div className="py-6 sm:py-8 max-w-md mx-auto animate-in fade-in duration-200">
         <EmptyState
           icon="🏆"
           title="Nothing Completed Yet"

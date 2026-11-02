@@ -38,7 +38,7 @@ export function HomePage() {
   // Empty state if user has no goals yet
   if (items.length === 0) {
     return (
-      <div className="py-12 px-4 max-w-3xl mx-auto space-y-8 animate-in fade-in duration-300">
+      <div className="py-4 sm:py-6 px-4 max-w-3xl mx-auto space-y-8 animate-in fade-in duration-300">
         <div className="text-center space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-line bg-surface text-xs font-mono text-muted mb-2">
             <Sparkles className="w-3.5 h-3.5 text-accent" />
